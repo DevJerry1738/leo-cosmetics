@@ -1,0 +1,31 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--color-white);
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar .logo {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.4rem;
+  color: var(--color-primary);
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+}
+
+.navbar a {
+  color: var(--color-primary);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.navbar a:hover {
+  color: var(--color-accent);
+}

@@ -1,0 +1,9 @@
+:root {
+  --color-primary: #1e1e1e;
+  --color-accent: #e7c6a4;
+  --color-bg: #f6f6f6;
+  --color-white: #ffffff;
+
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+}
