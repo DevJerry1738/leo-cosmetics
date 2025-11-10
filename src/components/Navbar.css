@@ -30,12 +30,20 @@
   margin: auto;
 }
 
+
 .navbar a {
   color: var(--color-primary);
   font-weight: 500;
   transition: color 0.2s;
+  font-size: 1rem;
 }
 
 .navbar a:hover {
   color: var(--color-accent);
+}
+
+@media (max-width: 480px) {
+  .navbar a {
+    font-size: 0.95rem;
+  }
 }

@@ -1,5 +1,5 @@
 import type { Product } from "../types/product";
-import product1 from "../assets/images/products/nivea-radiant-and-beauty.jpeg";
+import product1 from "../assets/images/products/nivea-radiant-and-beauty.webp";
 
 export const products: Product[] = [
   {

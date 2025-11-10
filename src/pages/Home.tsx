@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import "../styles/Home.css";
-import heroImage from "../assets/images/hero-skincare.jpg"; // update if needed
+import heroImage from "../assets/images/hero-skincare.webp"; 
+
 
 export default function Home() {
   // 👇 Scroll to the next section smoothly
