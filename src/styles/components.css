@@ -1,0 +1,27 @@
+.product-card, .brand-card {
+  border: 1px solid #eee;
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.product-card:hover, .brand-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img, .brand-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+.product-card h3, .brand-card h3 {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: var(--color-primary);
+}
+.product-card p, .brand-card p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--color-accent);
+}

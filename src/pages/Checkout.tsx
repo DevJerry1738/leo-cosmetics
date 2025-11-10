@@ -1,14 +1,10 @@
-import React from 'react'
+import "../styles/layout.css";
 
-const Checkout: React.FC = () => {
+export default function Checkout() {
   return (
-    <div className="page">
-      <h1>Checkout</h1>
-      <div className="checkout-form">
-        {/* Checkout form will be implemented here */}
-      </div>
-    </div>
-  )
+    <section className="checkout-page">
+      <h2>Checkout</h2>
+      <p>Pay securely with Paystack (coming soon).</p>
+    </section>
+  );
 }
-
-export default Checkout

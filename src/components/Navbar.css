@@ -1,6 +1,6 @@
 .navbar {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   padding: 1rem 2rem;
   background-color: var(--color-white);
@@ -13,11 +13,21 @@
   font-size: 1.4rem;
   color: var(--color-primary);
 }
+.navbar .logo img {
+  height: 150px; 
+}
+
 
 .navbar ul {
   display: flex;
   list-style: none;
   gap: 1.5rem;
+}
+
+.navbar .nav-links {
+  display: flex;
+  gap: 2rem;
+  margin: auto;
 }
 
 .navbar a {

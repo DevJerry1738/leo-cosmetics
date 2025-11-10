@@ -1,12 +1,43 @@
-import React from 'react'
+import { Link } from "react-router-dom";
+import "../styles/Home.css";
+import heroImage from "../assets/images/hero-skincare.jpg"; // update if needed
 
-const Home: React.FC = () => {
+export default function Home() {
+  // 👇 Scroll to the next section smoothly
+  const handleScrollDown = () => {
+    const nextSection = document.getElementById("featured-products");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="page">
-      <h1>Welcome to Leo Cosmetics</h1>
-      <p>Discover our collection of luxury beauty products</p>
-    </div>
-  )
-}
+    <>
+      <section className="home-hero">
+        <img src={heroImage} alt="Skincare products" className="hero-image" />
 
-export default Home
+        <div className="hero-overlay"></div>
+
+        <div className="hero-content">
+          <h1 className="hero-title">Discover Authentic Beauty</h1>
+          <p className="hero-text">
+            Premium skincare, perfumes, and body essentials crafted for your glow.
+          </p>
+          <Link to="/products" className="btn-shop">
+            Shop Now
+          </Link>
+        </div>
+
+        {/* ✨ Scroll indicator */}
+        <div className="scroll-indicator" onClick={handleScrollDown}>
+          <span></span>
+        </div>
+      </section>
+
+      {/* 👇 Example placeholder for next section */}
+      <section id="featured-products" className="featured-placeholder">
+        <h2>Featured Products (coming soon)</h2>
+      </section>
+    </>
+  );
+}

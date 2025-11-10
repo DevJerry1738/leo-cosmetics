@@ -1,0 +1,29 @@
+.brands-page {
+  padding: 2rem;
+}
+
+.brand-grid {
+   display: grid;
+  gap: 1.5rem;
+  /* Mobile-first: single column */
+  grid-template-columns: 1fr;
+}
+
+/* Responsive columns: 2 / 3 / 4 columns at breakpoints */
+@media (min-width: 600px) {
+  .brand-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .brand-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1200px) {
+  .brand-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

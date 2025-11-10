@@ -1,14 +1,10 @@
-import React from 'react'
+import "../styles/layout.css";
 
-const Cart: React.FC = () => {
+export default function Cart() {
   return (
-    <div className="page">
-      <h1>Your Cart</h1>
-      <div className="cart-items">
-        {/* Cart items will be implemented here */}
-      </div>
-    </div>
-  )
+    <section className="cart-page">
+      <h2>Your Cart</h2>
+      <p>No items yet.</p>
+    </section>
+  );
 }
-
-export default Cart

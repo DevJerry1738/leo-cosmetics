@@ -1,14 +1,20 @@
-import React from 'react'
+import { brands } from "../data/brands";
+import BrandCard from "../components/BrandCard";
+import "../styles/brands.css";
 
-const Brands: React.FC = () => {
+export default function Brands() {
   return (
-    <div className="page">
-      <h1>Our Brands</h1>
-      <div className="brands-grid">
-        {/* Brands grid will be implemented here */}
+    <section className="brands-page">
+      <h2>Shop by Brand</h2>
+      <div className="brand-grid">
+        {brands.map((brand) => (
+          <BrandCard
+            key={brand.id}
+            brand={brand}
+            onSelect={(id) => alert(`Selected brand ${id}`)}
+          />
+        ))}
       </div>
-    </div>
-  )
+    </section>
+  );
 }
-
-export default Brands

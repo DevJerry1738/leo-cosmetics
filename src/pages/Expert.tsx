@@ -1,14 +1,10 @@
-import React from 'react'
+import ExpertForm from "../components/ExpertForm";
+import "../styles/expert.css";
 
-const Expert: React.FC = () => {
+export default function Expert() {
   return (
-    <div className="page">
-      <h1>Expert Consultation</h1>
-      <div className="expert-content">
-        {/* Expert consultation content will be implemented here */}
-      </div>
-    </div>
-  )
+    <section className="expert-page">
+      <ExpertForm />
+    </section>
+  );
 }
-
-export default Expert
