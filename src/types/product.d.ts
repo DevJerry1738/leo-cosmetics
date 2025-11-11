@@ -7,4 +7,7 @@ export interface Product {
   description: string;
   images: string[];
   variants?: string[];
+  badge?: "Best Seller" | "New" | "Sale";
+  brand?: string;
+  quantity?: number;
 }

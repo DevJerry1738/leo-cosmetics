@@ -14,35 +14,57 @@ export default function Products() {
 
   return (
     <section className="products-page">
-      <h2>Our Products</h2>
+      <div className="container">
+        {/* Page Header */}
+        <div className="page-header">
+          <h1 className="page-title">Discover Our Collection</h1>
+          <p className="page-subtitle">
+            Authentic luxury skincare, fragrances, and wellness essentials
+          </p>
+        </div>
 
-      <div className="filter-bar">
-        <label>Filter by Brand:</label>
-        <select
-          value={selectedBrand}
-          onChange={(e) =>
-            setSelectedBrand(
-              e.target.value === "all" ? "all" : Number(e.target.value)
-            )
-          }
-        >
-          <option value="all">All Brands</option>
-          {brands.map((b) => (
-            <option key={b.id} value={b.id}>
-              {b.name}
-            </option>
-          ))}
-        </select>
-      </div>
+        {/* Filter Bar */}
+        <div className="filter-bar">
+          <label htmlFor="brand-filter" className="filter-label">
+            Filter by Brand
+          </label>
+          <div className="select-wrapper">
+            <select
+              id="brand-filter"
+              value={selectedBrand}
+              onChange={(e) =>
+                setSelectedBrand(
+                  e.target.value === "all" ? "all" : Number(e.target.value)
+                )
+              }
+              className="brand-select"
+            >
+              <option value="all">All Brands</option>
+              {brands.map((b) => (
+                <option key={b.id} value={b.id}>
+                  {b.name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
 
-      <div className="product-grid">
-        {filtered.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onView={(id) => alert(`View product ${id}`)}
-          />
-        ))}
+        {/* Product Grid */}
+        <div className="product-grid">
+          {filtered.length > 0 ? (
+            filtered.map((product) => (
+              <ProductCard
+                key={product.id}
+                product={product}
+               
+              />
+            ))
+          ) : (
+            <div className="empty-state">
+              <p>No products found for this brand.</p>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

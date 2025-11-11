@@ -1,0 +1,230 @@
+/* ====================== */
+/* GLOBAL VARIABLES */
+/* ====================== */
+:root {
+  --color-white: #ffffff;
+  --color-black: #1a1a1a;
+  --color-accent: #d4af37;
+  --color-gray: #f8f8f8;
+  --color-success: #25d366;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --radius: 16px;
+  --transition: all 0.3s ease;
+}
+
+/* ====================== */
+/* PAGE LAYOUT */
+/* ====================== */
+.expert-page {
+  padding: 4rem 0;
+  background: linear-gradient(to bottom, #fdfdfd, var(--color-gray));
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ====================== */
+/* HEADER */
+/* ====================== */
+.page-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 6vw, 3rem);
+  color: var(--color-black);
+  margin: 0 0 0.75rem;
+  position: relative;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+}
+
+.page-subtitle {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ====================== */
+/* FORM CONTAINER */
+/* ====================== */
+.expert-content {
+  display: flex;
+  justify-content: center;
+}
+
+.expert-form {
+  background: var(--color-white);
+  padding: 2.5rem;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 560px;
+}
+
+/* ====================== */
+/* FORM STYLES */
+/* ====================== */
+.expert-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--color-black);
+  font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.9rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  transition: var(--transition);
+  background: #fafafa;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Submit Button */
+.btn-submit {
+  background: var(--color-accent);
+  color: var(--color-black);
+  font-weight: 700;
+  font-size: 1.05rem;
+  padding: 1rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+  margin-top: 0.5rem;
+}
+
+.btn-submit:hover {
+  background: #e0c45c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+}
+
+.btn-submit:active {
+  transform: translateY(0);
+}
+
+/* ====================== */
+/* WHATSAPP CTA */
+/* ====================== */
+.whatsapp-cta {
+  text-align: center;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed #eee;
+}
+
+.whatsapp-cta span {
+  display: block;
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 0.75rem;
+}
+
+.whatsapp-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-success);
+  color: white;
+  font-weight: 600;
+  padding: 0.85rem 1.5rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-link:hover {
+  background: #128c7e;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+}
+
+.whatsapp-link::before {
+  
+  font-size: 1.1rem;
+}
+
+/* ====================== */
+/* RESPONSIVE */
+/* ====================== */
+@media (max-width: 768px) {
+  .expert-form {
+    padding: 2rem;
+  }
+
+  .btn-submit,
+  .whatsapp-link {
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .expert-form {
+    padding: 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .whatsapp-cta span {
+    font-size: 0.9rem;
+  }
+}

@@ -7,6 +7,7 @@ import Brands from "./pages/Brands";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
 import Expert from "./pages/Expert";
+import ProductDetails from "./pages/ProductDetail";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/expert" element={<Expert />} />
+          <Route path="/product/:id" element={<ProductDetails />} />
         </Routes>
       </main>
       <Footer />
