@@ -314,6 +314,9 @@
   .cart-actions {
     justify-content: center;
   }
+  .cart-item-controls{
+    justify-content: center;
+  }
 }
 
 @media (max-width: 480px) {

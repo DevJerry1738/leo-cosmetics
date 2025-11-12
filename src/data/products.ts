@@ -4,6 +4,8 @@ import product2 from "../assets/images/products/Nivea-Radiant-and-Beauty-Advance
 import product3 from "../assets/images/products/Nivea-Perfect-and-Radiant.webp";  
 import product4 from "../assets/images/products/Vaseline-Healthy-Even-Tone.webp";  
 import product5 from "../assets/images/products/Vaseline-Gluta-Hya-Flawless Bright-Serum-burst-Lotion.webp";  
+import product6 from "../assets/images/products/face-facts-bright+clear.webp";  
+import product7 from "../assets/images/products/face-facts-niacinamide-serum.webp";  
 
 export const products: Product[] = [
   {
@@ -63,5 +65,28 @@ export const products: Product[] = [
     description: "With GlutaGlow technology (10× more powerful than Vitamin C), Hyaluron and Pro-Retinol, this serum-burst body lotion locks in moisture, boosts radiance and supports even skin tone from first use. :contentReference[oaicite:1]{index=1}",
     images: [product5],
     variants: ["400ml"],
+  },
+  {
+    id: 6,
+    name: "Face Facts Bright + Clear Face Cream",
+    brandId: 3,
+    brand: "Face Facts",
+    badge: "Sale",
+    category: "Body Creams",
+    price: 15000,
+    description: "Facefacts Bright + Clear Face Cream is a lightweight daily moisturiser formulated to brighten and even out the complexion while targeting dark spots and blemishes. Enriched with niacinamide, kojic acid, tranexamic acid, and azelaic acid, it helps fade discoloration, smooth skin texture, and promote a clearer, more radiant tone. Added hyaluronic acid and vitamin E provide deep hydration and soothe the skin, leaving it soft and refreshed. Suitable for most skin types, this cream supports a balanced, glowing complexion with regular use.",
+    images: [product6],
+    variants: ["75ml"],
+  },
+  {
+    id: 7,
+    name: "Face Facts Niacinamide Serum",
+    brandId: 3,
+    brand: "Face Facts",
+    category: "Serums",
+    price: 12000,
+    description: "Facefacts Niacinamide Serum is a powerful treatment designed to target uneven skin tone, dark spots, and signs of aging. Formulated with 10% niacinamide, this serum helps to brighten the complexion, improve skin texture, and reduce the appearance of pores. Lightweight and fast-absorbing, it provides deep hydration while promoting a more radiant and youthful-looking skin.",
+    images: [product7],
+    variants: ["30ml"],
   },
 ];
