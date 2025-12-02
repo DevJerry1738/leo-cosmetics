@@ -8,6 +8,12 @@ interface CartItem extends Product {
 
 interface CartContextType {
   cartItems: CartItem[];
+  /**
+   * Adds a product to the cart.
+   * If the product already exists, increases its quantity.
+   * @param product - The product to add
+   * @param quantity - Number of items to add (defaults to 1)
+   */
   addToCart: (product: Product, quantity?: number) => void;
   removeFromCart: (id: number) => void;
   updateQuantity: (id: number, quantity: number) => void;
@@ -20,29 +26,33 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
 
   const addToCart = (product: Product, quantity: number = 1) => {
+    if (quantity < 1) return; // Prevent invalid quantities
+
     setCartItems((prev) => {
       const existing = prev.find((item) => item.id === product.id);
+
       if (existing) {
         return prev.map((item) =>
           item.id === product.id
             ? { ...item, quantity: item.quantity + quantity }
             : item
         );
-      } else {
-        return [...prev, { ...product, quantity }];
       }
+
+      return [...prev, { ...product, quantity }];
     });
   };
 
-  const removeFromCart = (id: number) =>
+  const removeFromCart = (id: number) => {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
+  };
 
-  const updateQuantity = (id: number, quantity: number) =>
+  const updateQuantity = (id: number, quantity: number) => {
+    const newQuantity = Math.max(1, quantity); // Enforce minimum 1
     setCartItems((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, quantity: Math.max(1, quantity) } : item
-      )
+      prev.map((item) => (item.id === id ? { ...item, quantity: newQuantity } : item))
     );
+  };
 
   const clearCart = () => setCartItems([]);
 

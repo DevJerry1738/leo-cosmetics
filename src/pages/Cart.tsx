@@ -1,14 +1,28 @@
 import "../styles/Cart.css";
 import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { useAuth } from "../context/AuthContext";
 
 export default function Cart() {
   const { cartItems, removeFromCart, updateQuantity, clearCart } = useCart();
+  const { user } = useAuth();
+  const navigate = useNavigate();
+
+  const [showLoginModal, setShowLoginModal] = useState(false);
 
   const totalPrice = cartItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
   );
+
+  const handleCheckout = () => {
+    if (!user) {
+      setShowLoginModal(true);
+      return;
+    }
+    navigate("/checkout");
+  };
 
   return (
     <section className="cart-page">
@@ -43,9 +57,7 @@ export default function Cart() {
 
                   <div className="cart-item-info">
                     <h3 className="item-name">{item.name}</h3>
-                    {item.brand && (
-                      <p className="item-brand">{item.brand}</p>
-                    )}
+                    {item.brand && <p className="item-brand">{item.brand}</p>}
                     <p className="cart-item-price">
                       ₦{item.price.toLocaleString()}
                     </p>
@@ -61,7 +73,9 @@ export default function Cart() {
                       </button>
                       <span>{item.quantity}</span>
                       <button
-                        onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                        onClick={() =>
+                          updateQuantity(item.id, item.quantity + 1)
+                        }
                         aria-label="Increase quantity"
                       >
                         +
@@ -77,9 +91,7 @@ export default function Cart() {
                   </div>
 
                   <div className="cart-item-total">
-                    <p>
-                      ₦{(item.price * item.quantity).toLocaleString()}
-                    </p>
+                    <p>₦{(item.price * item.quantity).toLocaleString()}</p>
                   </div>
                 </article>
               ))}
@@ -106,7 +118,7 @@ export default function Cart() {
                 <button className="btn-clear" onClick={clearCart}>
                   Clear Cart
                 </button>
-                <button className="btn-checkout">
+                <button className="btn-checkout" onClick={handleCheckout}>
                   Proceed to Checkout
                 </button>
               </div>
@@ -114,6 +126,33 @@ export default function Cart() {
           </>
         )}
       </div>
+
+      {/* LOGIN REQUIRED MODAL */}
+      {showLoginModal && (
+        <div className="login-modal-overlay">
+          <div className="login-modal">
+            <h3>Login Required</h3>
+            <p>You must be logged in to proceed to checkout.</p>
+
+            <div className="modal-actions">
+              <Link
+                to="/login"
+                className="modal-btn modal-login"
+                onClick={() => setShowLoginModal(false)}
+              >
+                Login
+              </Link>
+
+              <button
+                className="modal-btn modal-cancel"
+                onClick={() => setShowLoginModal(false)}
+              >
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

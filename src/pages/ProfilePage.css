@@ -1,0 +1,254 @@
+/* src/pages/ProfilePage.css */
+
+.profile-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #fdfdfd, #f8f9fa);
+  padding: 6rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.profile-card {
+  width: 100%;
+  max-width: 680px;
+  background: white;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  border: 1px solid #eee;
+}
+
+.profile-card h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 1.8rem;
+  font-family: 'Playfair Display', serif;
+  text-align: center;
+  padding-top: 2.5rem;
+}
+
+/* User Info Section */
+.profile-section {
+  background: #fafafa;
+  padding: 2rem;
+  border-radius: 20px;
+  margin: 0 2rem 2rem;
+  border: 1px solid #eee;
+}
+
+.profile-section p {
+  margin: 1rem 0;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+}
+
+.profile-section strong {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Section Title */
+.profile-card h3 {
+  font-size: 1.7rem;
+  font-weight: 700 1.7rem 'Playfair Display', serif;
+  color: #1a1a1a;
+  margin: 2.5rem 2rem 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 3px solid #d4af37;
+  display: inline-block;
+}
+
+/* No Address State */
+.no-address {
+  color: #777;
+  font-size: 1.1rem;
+  text-align: center;
+  margin: 2rem 0 1.5rem;
+  font-style: italic;
+}
+
+/* Address Card (when address exists) */
+.address-card {
+  background: linear-gradient(135deg, #fdfdfd, #f8f8f8);
+  border: 2px solid #eee;
+  border-radius: 20px;
+  padding: 2rem;
+  margin: 1rem 2rem 2rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.address-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #d4af37, #b8972e);
+}
+
+.address-card p {
+  margin: 0.8rem 0;
+  color: #333;
+  line-height: 1.7;
+  font-size: 1.05rem;
+}
+
+.address-card p:first-child {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000;
+}
+
+/* Form */
+.address-form {
+  background: #fcfcfc;
+  border: 1px solid #eee;
+  border-radius: 20px;
+  padding: 2.5rem;
+  margin: 1rem 2rem 2rem;
+}
+
+.input-row {
+  margin-bottom: 1.5rem;
+}
+
+.input-row label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.6rem;
+  font-size: 1rem;
+}
+
+.input-row input {
+  width: 100%;
+  padding: 1.1rem 1.3rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  font-size: 1rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.input-row input:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.15);
+  background: #fff;
+}
+
+.input-row input::placeholder {
+  color: #aaa;
+}
+
+/* Buttons */
+.add-btn,
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  padding: 0.95rem 2.2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.add-btn,
+.edit-btn,
+.save-btn {
+  background: linear-gradient(135deg, #d4af37, #ffd700);
+  color: #000;
+  font-weight: 700;
+  box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+}
+
+.add-btn:hover,
+.edit-btn:hover,
+.save-btn:hover:not(:disabled):hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(212, 175, 55, 0.5);
+}
+
+.save-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.cancel-btn {
+  background: #f0f0f0;
+  color: #333;
+  margin-top: 0.8rem;
+}
+
+.cancel-btn:hover {
+  background: #e0e0e0;
+}
+
+/* Loading */
+.profile-loading {
+  text-align: center;
+  padding: 8rem 2rem;
+  font-size: 1.4rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .profile-card {
+    margin: 1rem;
+    border-radius: 20px;
+  }
+
+  .profile-card h2 {
+    font-size: 1.9rem;
+  }
+
+  .profile-card h3 {
+    font-size: 1.5rem;
+    margin: 2rem 1.5rem 1.2rem;
+  }
+
+  .address-card,
+  .address-form,
+  .profile-section {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  .add-btn,
+  .edit-btn,
+  .save-btn,
+  .cancel-btn {
+    padding: 1rem 1.8rem;
+  }
+}
+
+.error-text {
+  color: #d9534f;
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+.state-select {
+  width: 100%;
+  padding: 1.1rem 1.3rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 16px;
+  font-size: 1rem;
+  background: white;
+}
+.state-select:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 5px rgba(212, 175, 55, 0.15);
+}

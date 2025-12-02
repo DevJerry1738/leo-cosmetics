@@ -23,8 +23,9 @@ export default function ProductDetails() {
   }
 
   const handleAddToCart = () => {
-    addToCart({ ...product, quantity });
+    addToCart(product, quantity);
     setAdded(true);
+    setQuantity(1);
     setTimeout(() => setAdded(false), 2200);
   };
 
@@ -37,7 +38,9 @@ export default function ProductDetails() {
       {/* ✅ Toast fixed at top of screen */}
       {added && (
         <div className="global-toast">
-          <span>{quantity} item{quantity > 1 ? "s" : ""} added to cart</span>
+          <span>
+            {quantity} item{quantity > 1 ? "s" : ""} added to cart
+          </span>
         </div>
       )}
 
@@ -55,15 +58,24 @@ export default function ProductDetails() {
 
             {/* ✅ Quantity Selector */}
             <div className="quantity-selector">
-              <button onClick={() => handleQuantityChange(quantity - 1)}>-</button>
+              <button onClick={() => handleQuantityChange(quantity - 1)}>
+                -
+              </button>
               <input
                 type="number"
                 value={quantity}
                 min={1}
                 max={10}
-                onChange={(e) => setQuantity(Number(e.target.value))}
+                onChange={(e) => {
+                  const val = Number(e.target.value);
+                  if (!isNaN(val) && val >= 1 && val <= 10) {
+                    setQuantity(val);
+                  }
+                }}
               />
-              <button onClick={() => handleQuantityChange(quantity + 1)}>+</button>
+              <button onClick={() => handleQuantityChange(quantity + 1)}>
+                +
+              </button>
             </div>
 
             <button className="btn-shop" onClick={handleAddToCart}>
